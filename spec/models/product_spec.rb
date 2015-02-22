@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:product_with_invalid_url) { build(:product, image_url: 'lorem.jp') }
+
+  it 'should contains valid image format' do
+    expect(product_with_invalid_url).to_not be_valid
+  end
 end
